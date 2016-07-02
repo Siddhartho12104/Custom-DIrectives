@@ -1,0 +1,27 @@
+<!-- Write a directive to demonstrate 2-way data binding of parent scope property in
+isolated scopes. -->
+<!DOCTYPE html>
+<html>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<body>
+
+<div ng-app="myApp" ng-controller="myCtrl">
+    <font face="calibri"> Name:<input ng-model="firstname">
+    <h1>{{firstname}}</h1>
+    Team: <input ng-model="club">
+    <h1>{{club}}</h1></font>
+</div>
+
+<script>
+var app = angular.module('myApp', []);
+app.controller('myCtrl', function($scope) {
+    $scope.firstname = "Mesut";
+    $scope.lastname = "Ozil";
+    $scope.club = "Arsenal";
+});
+</script>
+
+
+
+</body>
+</html>

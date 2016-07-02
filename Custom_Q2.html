@@ -1,0 +1,63 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Custom Directives Q2</title>
+	<!-- Create 3 custom directives for a pop up and restrict the use of that directive as a
+directive, comment, element, attribute. -->
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+	<script src="myController.js"></script>
+	<style type="text/css">
+		div{
+
+			border: 2px solid red;
+			background-color: lightgreen;
+		
+		}
+	</style>
+</head>
+<body>
+<script type="text/javascript">
+var module= angular.module("myapp", []);
+		module.controller("myctrl", function($scope){
+			$scope.name="nice name";
+			$scope.designation="SDE";
+
+		});
+		module.directive("ngOut",function(){
+			return{
+				template: '<div  class="name-body"> <p>output with restrict type A is: </p> {{name}} </div>',
+				restrict: 'A',
+				
+			}
+		});
+		module.directive("ngOut1", function(){
+			return{
+				template: '<div  class="desig-body">  <p>output with restrict type E is: </p> {{designation}} </div>',
+				restrict: 'E',
+					
+			}
+		});
+		
+	angular.module('directivesModule').directive('myIsolatedScopeWithName', function () {
+    return {
+        scope: {
+            name: '@'
+        },
+        template: 'Name: {{ name }}'
+    };
+});
+</script>
+<body ng-app="myapp">
+<div  ng-controller="myctrl"  ng-view>
+	Name: <input ng-model="name" >
+	Designation: <input ng-model="designation">
+
+	<div ng-out></div>
+	<br>
+	<br>
+	<ng-out1> </ng-out1>
+	</div>
+
+</body>
+</html>

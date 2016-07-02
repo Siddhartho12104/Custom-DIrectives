@@ -1,0 +1,16 @@
+<!-- Create a Custom Directive that should be displayed as it is in a div when we write
+something in an input box.
+
+<!DOCTYPE html> -->
+<html>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<body>
+
+<div ng-app="">
+<p>Enter your name: <input type="text" ng-model="name"></p>
+Your name is: <b><div ng-bind="name"></div></b>
+
+</div>
+
+</body>
+</html>
